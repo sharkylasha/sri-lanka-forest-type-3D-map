@@ -1,0 +1,37 @@
+<PAMDataset>
+  <SRS dataAxisToSRSAxisMapping="1,2">PROJCS["unknown",GEOGCS["unknown",DATUM["Unknown based on Everest 1830 ellipsoid using towgs84=-0.293,766.95,87.713,-0.195704,-1.695068,-3.473016,-0.039338",SPHEROID["Everest 1830",6377276.345,300.8017],TOWGS84[-0.293,766.95,87.713,-0.195704,-1.695068,-3.473016,-0.0393379999686]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",7.00047152777778],PARAMETER["central_meridian",80.7717130833333],PARAMETER["scale_factor",0.9999238418],PARAMETER["false_easting",500000],PARAMETER["false_northing",500000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH]]</SRS>
+  <GeoTransform>  3.6169122670088918e+05,  5.4812633500977518e+02,  0.0000000000000000e+00,  8.1349305931650428e+05,  0.0000000000000000e+00, -5.4812633500977506e+02</GeoTransform>
+  <Metadata>
+    <MDI key="NODATA_VALUES">255 255 255</MDI>
+  </Metadata>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Description>red</Description>
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">255</MDI>
+      <MDI key="STATISTICS_MEAN">-9999</MDI>
+      <MDI key="STATISTICS_MINIMUM">4.747295979328e-27</MDI>
+      <MDI key="STATISTICS_STDDEV">-9999</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="2">
+    <Description>green</Description>
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">216</MDI>
+      <MDI key="STATISTICS_MEAN">-9999</MDI>
+      <MDI key="STATISTICS_MINIMUM">4.747295979328e-27</MDI>
+      <MDI key="STATISTICS_STDDEV">-9999</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="3">
+    <Description>blue</Description>
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">255</MDI>
+      <MDI key="STATISTICS_MEAN">-9999</MDI>
+      <MDI key="STATISTICS_MINIMUM">4.747295979328e-27</MDI>
+      <MDI key="STATISTICS_STDDEV">-9999</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

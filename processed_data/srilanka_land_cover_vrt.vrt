@@ -1,0 +1,24 @@
+<VRTDataset rasterXSize="475" rasterYSize="789">
+  <SRS dataAxisToSRSAxisMapping="2,1">GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]</SRS>
+  <GeoTransform>  7.9522817460317384e+01,  4.9603174603174809e-03,  0.0000000000000000e+00,  9.8333333333333677e+00,  0.0000000000000000e+00, -4.9603174603174444e-03</GeoTransform>
+  <VRTRasterBand dataType="Float32" band="1">
+    <NoDataValue>nan</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">E060N20_PROBAV_LC100_global_v3.0.1_2019-nrt_Forest-Type-layer_EPSG-4326.tif_srilanka.tiff</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="97" RasterYSize="789" DataType="Float32" BlockXSize="97" BlockYSize="21" />
+      <SrcRect xOff="0" yOff="0" xSize="97" ySize="789" />
+      <DstRect xOff="0" yOff="0" xSize="97" ySize="789" />
+      <NODATA>nan</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">E080N20_PROBAV_LC100_global_v3.0.1_2019-nrt_Forest-Type-layer_EPSG-4326.tif_srilanka.tiff</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="379" RasterYSize="789" DataType="Float32" BlockXSize="379" BlockYSize="5" />
+      <SrcRect xOff="0" yOff="0" xSize="378.799999999987" ySize="789" />
+      <DstRect xOff="96.200000000015" yOff="0" xSize="378.799999999985" ySize="789" />
+      <NODATA>nan</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+</VRTDataset>
