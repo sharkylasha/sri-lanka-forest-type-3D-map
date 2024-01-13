@@ -140,11 +140,12 @@ terra::plot(country_forest_type)
 #----------------------------------##
 
 cols <- c(
-  "#073b4c",
+  "#C77CFF",
   "#ffcf6a",
   "#397d49",
-  "#7cd8ff",
-  "#8DD3C7"
+  "#B22222",
+  "#7cd8ff"
+  
 )
 
 
@@ -177,6 +178,159 @@ terra::writeRaster(
 )
 
 img <- png::readPNG(img_file)
+
+## 5. COUNTRY ELEVATION RASTER
+##-----------------------------##
+
+elev <- elevatr::get_elev_raster(
+  locations = country_sf,
+  z = 10,
+  clip = "locations"
+)
+
+elev_tmercator <- elev |>
+  terra::rast() |>
+  terra::project(crs_tmercator)
+
+
+elmat <- rayshader::raster_to_matrix(elev_tmercator)
+
+
+
+## 6. RENDER SCENE ##
+##------------------##
+
+h <- nrow(elev_tmercator)
+w <- nrow(elev_tmercator)
+
+
+elmat |>
+  rayshader::height_shade(
+    texture = colorRampPalette(
+      "white"
+    )(700)
+  ) |>
+  rayshader::add_overlay(
+    img,
+    alphalayer = 0.9,
+    alphacolor = "white"
+  ) |>
+  rayshader::add_shadow(
+    rayshader::lamb_shade(
+      elmat,
+      zscale = 50,
+      sunaltitude = -34.08,
+      sunangle = 124
+    ), max_darken = 0.25
+  ) |>
+  rayshader::add_shadow(
+    rayshader::texture_shade(
+      elmat,
+      detail = 0.95,
+      brightness = 90,
+      contrast = 80,
+    ), max_darken = 0.1
+  ) |>
+  rayshader::plot_3d(
+    elmat,
+    zscale = 5,
+    solid = F,
+    shadow = T,
+    shadow_darkness = 1,
+    background = "white",
+    windowsize = c(
+      w / 5, h /5
+    ),
+    zoom = 0.5,
+    phi = 85,
+    theta = 0
+  )
+
+
+## 7. RENDER OBJECT ##
+##-------------------##
+
+rayshader::render_highquality(
+    filename = "SL-forest-type-3d.png",
+    preview = T,
+    light = F,
+    environment_light = "air_museum_playground_4k.hdr",
+    intensity_env = 2,
+    rotate_env = 90,
+    interactive = F,
+    parallel = T,
+    width = w, height = h
+)
+
+
+## 8. MAKE LEGEND #
+##..................#
+
+png("Forest_type_legend.png")
+par(family = "mono")
+plot(
+    NULL, xaxt = "n",
+    yaxt = "n", bty = "n",
+    ylab = "", xlab = "",
+    xlim = 0:1, ylim = 0:1,
+    xaxs = "i", yaxs = "i"
+)
+legend(
+    "center",
+    legend = c(
+        "Unknown",
+        "Deciduous broad leaf",
+        "Evergreen broad leaf",
+        "Evergreen needle leaf",
+        "Mixed"
+    ),
+    pch = 16,
+    pt.cex = 3,
+    cex = 1.5,
+    bty = "n",
+    col = cols
+)
+dev.off()
+
+
+## 9. FINAL MAP ##
+##---------------##
+
+
+forest_img <- magick::image_read(
+    "SL-forest-type-3d.png"
+)
+
+my_legend <- magick::image_read(
+    "Forest_type_legend.png"
+)
+
+my_legend_scaled <- magick::image_scale(
+    magick::image_background(
+    my_legend, "none"), 2000
+) |>
+magick::image_transparent("white")
+
+p <- magick::image_composite(
+    magick::image_scale(
+        forest_img,
+        "x4000"
+    ),
+    my_legend_scaled,
+    offset = "+100+0"
+)
+
+magick::image_write(
+    p,
+    "final-map.png"
+)
+
+
+
+
+
+
+
 
 ```
 
