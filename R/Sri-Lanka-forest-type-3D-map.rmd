@@ -219,8 +219,8 @@ elmat |>
     rayshader::lamb_shade(
       elmat,
       zscale = 50,
-      sunaltitude = -34.08,
-      sunangle = 124
+      sunaltitude = 90,
+      sunangle = 315
     ), max_darken = 0.25
   ) |>
   rayshader::add_shadow(
@@ -239,7 +239,7 @@ elmat |>
     shadow_darkness = 1,
     background = "white",
     windowsize = c(
-      w /12, h /12
+      w, h
     ),
     zoom = 0.5,
     phi = 85,
