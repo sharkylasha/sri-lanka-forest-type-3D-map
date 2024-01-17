@@ -1,0 +1,11 @@
+install.packages("remotes")
+remotes::install_github("dmurdoch/rgl")
+remotes::install_github("tylermorganwall/rayrender")
+remotes::install_github("tylermorganwall/rayshader")
+
+install.packages("giscoR")
+install.packages("terra")
+install.packages("elevatr")
+install.packages("sf")
+install.packages("png")
+install.packages("magick")
