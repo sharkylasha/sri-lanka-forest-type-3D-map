@@ -1,4 +1,5 @@
 
+# language: R
 ##title: "Sri-Lanka-forest-type-3D-map"
 ##author: "Lashanthini Rajendram"
 ##date: "09/01/2024"
@@ -117,7 +118,7 @@ unique(vals$value)
 
 ## 4. CROP FOREST TYPE RASTER ##
 #------------------------------------##
-
+##Transverse Mercator Projection for local map system EPSG:5235
 
 crs_tmercator <- 
   "+proj=tmerc +lat_0=7.00047152777778 +lon_0=80.7717130833333 +k=0.9999238418 +x_0=500000 +y_0=500000 +ellps=evrst30 +towgs84=-0.293,766.95,87.713,-0.195704,-1.695068,-3.473016,-0.039338 +units=m +no_defs +type=crs"
